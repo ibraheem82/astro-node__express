@@ -2,8 +2,9 @@
 
 // const parse = require("csv-parse");
 // * help us to use key and values
-const { parse } = require("csv-parse");
 const fs = require("fs");
+const path = require("path");
+const { parse } = require("csv-parse");
 // const { resourceLimits } = require("worker_threads");
 
 // const results = [];
@@ -22,7 +23,9 @@ function isHabitablePlanet(planet) {
 // * The parse() is design to be use with a stream
 function loadPlanetsData() {
   return new Promise((resolve, reject) => {
-    fs.createReadStream("kepler_data.csv")
+    fs.createReadStream(
+      path.join(__dirname, "..", "..", "data", "kepler_data.csv")
+    )
       // * the pipe() function is meant to connect a  readable stream source to a writeable stream destination
       // * this will conect the two stream together
       .pipe(
@@ -45,7 +48,6 @@ function loadPlanetsData() {
       })
       .on("end", () => {
         console.log(`${habitablePlanets.length} habitable planets found!`);
-        console.log(`${habitablePlanets}`);
         resolve();
       });
   });
