@@ -10,7 +10,7 @@ const fs = require("fs");
 const habitablePlanets = [];
 
 function isHabitablePlanet(planet) {
-  // ! ALl the planets supports life.
+  // ! All the planets supports life.
   return (
     planet["koi_disposition"] === "CONFIRMED" &&
     planet["koi_insol"] > 0.36 &&
@@ -53,4 +53,6 @@ fs.createReadStream("kepler_data.csv")
     );
   });
 
-module.exports;
+module.exports = {
+  planets: habitablePlanets,
+};
