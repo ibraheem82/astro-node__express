@@ -2,6 +2,9 @@
 const path = require('path');
 const express = require("express");
 const cors = require("cors");
+const morgan  = require('morgan')
+
+
 const planetsRouter = require("./routes/planets/planets.router");
 
 const app = express();
@@ -12,6 +15,11 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
+
+
+ app.use(morgan('combined'));
+
+
 app.use(express.json());
 // will serve all of our public files.
 app.use(express.static(path.join(__dirname, '..', 'public')))
@@ -19,6 +27,11 @@ app.use(express.static(path.join(__dirname, '..', 'public')))
 // app.use(express.static(__dirname + '/public'));
 // app.use(express.static('public'));
 // app.use('/static', express.static(path.join(__dirname, 'public')))
+
+
+
+app.use(planetsRouter);
+
 app.get('/', (req, res) => {
   // res.sendFile(path.join(__dirname, '..', 'public'))
   // res.sendFile(path.resolve('public', 'index.html'))
@@ -37,6 +50,5 @@ app.get('/', (req, res) => {
 
 
 
-app.use(planetsRouter);
 
 module.exports = app;
