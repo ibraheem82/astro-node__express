@@ -30,7 +30,7 @@ function loadPlanetsData() {
       // * this will conect the two stream together
       .pipe(
         parse({
-          // * these will return each rows in our ccv file, as a javascript object.
+          // * these will return each rows in our csv file, as a javascript object.
           comment: "#",
           columns: true,
         })
@@ -58,3 +58,8 @@ module.exports = {
   loadPlanetsData,
   planets: habitablePlanets,
 };
+
+
+ // "install-server": "npm install --prefix server",
+    // "install-client": "npm install --prefix client",
+    // "install": "npm install-server && npm install-client",
