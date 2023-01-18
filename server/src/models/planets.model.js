@@ -54,12 +54,14 @@ function loadPlanetsData() {
   });
 }
 
+function getAllPlanets() {
+  return habitablePlanets;
+}
+
+
 module.exports = {
   loadPlanetsData,
-  planets: habitablePlanets,
+  // planets: habitablePlanets,
+  habitablePlanets
 };
 
-
- // "install-server": "npm install --prefix server",
-    // "install-client": "npm install --prefix client",
-    // "install": "npm install-server && npm install-client",
