@@ -1,9 +1,7 @@
-/** @format */
 const path = require('path');
 const express = require("express");
 const cors = require("cors");
-const morgan  = require('morgan')
-
+const morgan = require('morgan')
 
 const planetsRouter = require("./routes/planets/planets.router");
 const launchesRouter = require("./routes/launches/launches.router");
@@ -13,7 +11,14 @@ const app = express();
 // returns the cors middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://127.0.0.1:3000",
+
+
+  //  allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
+  //   exposedHeaders: ["authorization"], // you can change the headers
+    origin: "*",
+  //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  //   preflightContinue: false
   })
 );
 
