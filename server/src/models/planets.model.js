@@ -43,7 +43,6 @@ function loadPlanetsData() {
         }
       })
       .on("error", err => {
-        c;
         console.log(err);
         reject(err);
       })
