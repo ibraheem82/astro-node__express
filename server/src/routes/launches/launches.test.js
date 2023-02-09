@@ -48,6 +48,6 @@ describe('Test POST /launch', () => {
   });
 
 
-  test('It should catch missing required prpertise', () => { });
+  test('It should catch missing required propertise', () => { });
   test('It should catch invalid dates', () => { });
 });
